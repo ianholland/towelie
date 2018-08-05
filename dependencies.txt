@@ -1,0 +1,24 @@
+#the following is for debian stretch
+
+apt-get install lib32gcc1
+#installs lib32gcc1 library
+
+apt edit-sources
+#edit sources.list and add "contrib non-free" after each entry, it should appear as follows:
+    #deb http://deb.debian.org/debian stretch main contrib non-free
+    #deb-src http://deb.debian.org/debian stretch main contrib non-free
+
+    #deb http://deb.debian.org/debian stretch-updates main contrib non-free
+    #deb-src http://deb.debian.org/debian stretch-updates main contrib non-free
+
+    #deb http://security.debian.org/ stretch/updates main contrib non-free
+    #deb-src http://security.debian.org/ stretch/updates main contrib non-free
+
+dpkg --add-architecture i386
+#adds i386 architecture support needed to install steamcmd
+
+apt update
+#downloads the updates just made to repository sources
+
+apt install steamcmd
+#installs steamcmd
